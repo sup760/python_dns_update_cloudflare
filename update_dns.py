@@ -54,11 +54,11 @@ def update_dns_record(api_key, zone_id, record_id, record_name, new_ip):
 if __name__ == "__main__":
     api_key = os.getenv('API_KEY')
     zone_id = os.getenv('ZONE_ID')
-    record_name = os.getenv('RECORD_NAME') # The DNS record that will be updated
-    new_ip = public_ip # The new IP address
+    record_name = os.getenv('RECORD_NAME')  # The DNS record that will be updated
+    new_ip = public_ip  # The new IP address
 
-try:
-    record_id = get_dns_record_id(api_key, zone_id, record_name)
-    update_dns_record(api_key, zone_id, record_id, record_name, new_ip)
-except Exception as e:
-    print(f"An error occured: {e}")
+    try:
+        record_id = get_dns_record_id(api_key, zone_id, record_name)
+        update_dns_record(api_key, zone_id, record_id, record_name, new_ip)
+    except Exception as e:
+        print(f"An error occurred: {e}")
